@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Configurable arguments -->
+  <arg name="topic" default="chatter"/>
+  <arg name="rate_hz" default="5.0"/>
+
+  <!-- Namespace to group nodes -->
+  <group ns="ijnek_demo">
+    <!-- Publisher node (expects to publish on 'chatter' unless remapped) -->
+    <node name="sample_publisher"
+          pkg="user_ijnek"
+          type="talker.py"
+          output="screen"
+          respawn="true">
+      <param name="rate_hz" value="$(arg rate_hz)"/>
+      <remap from="chatter" to="$(arg topic)"/>
+    </node>
+
+    <!-- Subscriber node (expects to subscribe to 'chatter' unless remapped) -->
+    <node name="sample_subscriber"
+          pkg="user_ijnek"
+          type="listener.py"
+          output="screen"
+          respawn="true">
+      <remap from="chatter" to="$(arg topic)"/>
+    </node>
+  </group>
+</launch>

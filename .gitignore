@@ -35,4 +35,6 @@ dist/
 shared_data/
 shared_data_sim/
 
-ib2_user_ws/
+ib2_user_ws/build/
+ib2_user_ws/devel/
+ib2_user_ws/.catkin_workspace
