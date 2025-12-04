@@ -35,6 +35,12 @@
       "launch": [
         "template_py.launch"
       ]
+    },
+    {
+      "user": "user_ijnek",
+      "launch": [
+        "test_ijnek.launch"
+      ]
     }
   ]
 }
