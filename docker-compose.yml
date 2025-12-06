@@ -28,4 +28,5 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix  # X11ソケット
       - /run/user/${UID}:/run/user/${UID}  # WaylandソケットやDBusがここにあることも
       - ./user_package_list.json:/home/nvidia/IB2/Int-Ball2_platform_gse/src/ground_system/platform_gui/config/user_package_list.json
-    command: /sbin/init # 初期化スクリプトを実行せず、systemdのみを起動
+    # command: /sbin/init # 初期化スクリプトを実行せず、systemdのみを起動
+    command: /bin/bash  # Using /sbin/init causes my wayland to crash, so using bash instead.
